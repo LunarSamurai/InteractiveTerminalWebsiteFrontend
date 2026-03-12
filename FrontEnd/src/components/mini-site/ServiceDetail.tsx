@@ -35,7 +35,7 @@ export default function ServiceDetail({ slug }: ServiceDetailProps) {
     )
   }
 
-  const Icon = (Icons as Record<string, React.ComponentType<{ className?: string }>>)[service.icon] || Icons.Shield
+  const Icon = (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[service.icon] || Icons.Shield
   const colors = iconColors[serviceIndex % 6] || iconColors[0]
 
   return (

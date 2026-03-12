@@ -19,7 +19,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ service, index }: ServiceCardProps) {
   const { navigate } = useMiniSiteNav()
   const Icon =
-    (Icons as Record<string, React.ComponentType<{ className?: string }>>)[
+    (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[
       service.icon
     ] || Icons.Shield
   const colors = iconColors[index % 6] || iconColors[0]

@@ -1,4 +1,4 @@
-import { filesystem, resolvePath, getAbsolutePath, getAllFiles, type FSNode } from './filesystem'
+import { filesystem, resolvePath, getAbsolutePath, type FSNode } from './filesystem'
 
 export type SessionFiles = Record<string, string>
 

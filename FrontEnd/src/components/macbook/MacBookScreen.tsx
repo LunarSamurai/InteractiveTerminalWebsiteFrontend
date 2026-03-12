@@ -13,7 +13,7 @@ const MacBookScreen = forwardRef<HTMLDivElement, MacBookScreenProps>(
     const [scale, setScale] = useState(1)
     const [terminalOpen, setTerminalOpen] = useState(false)
     const [dockVisible, setDockVisible] = useState(false)
-    const dockTimeoutRef = useRef<ReturnType<typeof setTimeout>>()
+    const dockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     // Scale the mini-site content to fit the screen
     useEffect(() => {
@@ -35,14 +35,14 @@ const MacBookScreen = forwardRef<HTMLDivElement, MacBookScreenProps>(
       if (nearBottom) {
         if (dockTimeoutRef.current) {
           clearTimeout(dockTimeoutRef.current)
-          dockTimeoutRef.current = undefined
+          dockTimeoutRef.current = null
         }
         setDockVisible(true)
       } else {
         if (!dockTimeoutRef.current) {
           dockTimeoutRef.current = setTimeout(() => {
             setDockVisible(false)
-            dockTimeoutRef.current = undefined
+            dockTimeoutRef.current = null
           }, 400)
         }
       }
@@ -51,7 +51,7 @@ const MacBookScreen = forwardRef<HTMLDivElement, MacBookScreenProps>(
     const handleMouseLeave = useCallback(() => {
       dockTimeoutRef.current = setTimeout(() => {
         setDockVisible(false)
-        dockTimeoutRef.current = undefined
+        dockTimeoutRef.current = null
       }, 300)
     }, [])
 

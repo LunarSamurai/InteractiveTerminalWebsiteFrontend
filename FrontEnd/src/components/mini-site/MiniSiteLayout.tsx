@@ -7,8 +7,7 @@ interface MiniSiteLayoutProps {
 }
 
 export default function MiniSiteLayout({ children }: MiniSiteLayoutProps) {
-  const { path, goBack, goForward, canGoBack, canGoForward } = useMiniSiteNav()
-  const isHome = path === '/'
+  const { goBack, goForward, canGoBack, canGoForward } = useMiniSiteNav()
   const [time, setTime] = useState('')
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { motion, useMotionValue, AnimatePresence } from 'framer-motion'
 import DockItem from './DockItem'
 import { Home, Globe, Terminal, Settings, Mail } from 'lucide-react'
